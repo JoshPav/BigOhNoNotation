@@ -18,7 +18,7 @@ export function getPairs(orderedMen: string[][]): string[][][] {
 function toPairArray(arr: string[]): string[][] {
   const pairs = [];
   for (let index = 0; index < arr.length - 1; index++) {
-    pairs.push([arr[index], arr[index + 1]]);
+    pairs.push([arr[index + 1], arr[index]]);
   }
   return pairs;
 }
