@@ -1,5 +1,19 @@
 import fs from "fs";
+import fse from "fs-extra";
 import { Slip } from "../types/types";
+
+export function writeCsvFile(headers: string[], data: (string | number)[][]) {
+  const fileLines = `${headers.join(",")}\n${data
+    .map((row) => row.join(","))
+    .join("\n")}`;
+
+  const fileName = `output/results/${Date.now()}.csv`;
+
+  fse.outputFile(fileName, fileLines, (err) => {
+    if (err) console.error(err);
+    else console.log(`Saved results to ${fileName}`);
+  });
+}
 
 export function readInputFile(num: number): Slip[] {
   return readFromTxtFile("input", num).map(toSlip);
