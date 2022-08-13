@@ -1,6 +1,6 @@
 import fs from "fs";
 import fse from "fs-extra";
-import { Slip } from "../types/types";
+import { PaperSlip } from "../types/types";
 
 export function writeCsvFile(headers: string[], data: (string | number)[][]) {
   const fileLines = `${headers.join(",")}\n${data
@@ -15,7 +15,7 @@ export function writeCsvFile(headers: string[], data: (string | number)[][]) {
   });
 }
 
-export function readInputFile(num: number): Slip[] {
+export function readInputFile(num: number): PaperSlip[] {
   return readFromTxtFile("input", num).map(toSlip);
 }
 
@@ -30,7 +30,7 @@ function readFromTxtFile(folder: string, num: number): string[] {
     .split("\n");
 }
 
-function toSlip(line: string): Slip {
+function toSlip(line: string): PaperSlip {
   const [person, neighbor] = line.split(",");
   return { person, neighbor };
 }

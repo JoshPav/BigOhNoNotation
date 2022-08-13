@@ -40,7 +40,7 @@ function getTimeElapsedPretty(msTaken: number): string {
   const output = [];
 
   let i = 0;
-  while (output.length < 2) {
+  while (output.length < 2 && i < output.length) {
     const { unitCalc, unit, colour } = unitCalculators[i];
     const timeMeasurement = toTimeStringOrUndefined(
       unitCalc(msTaken),

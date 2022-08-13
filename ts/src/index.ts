@@ -8,13 +8,12 @@ const inputFiles = [
 ];
 const timesToRun = 10;
 
-// Set to undefined to run all
-const fileToRun = 100000;
-// const fileToRun = 100;
+// Leave empty to run all
+const filesToRun = [10];
 
 const allResults: number[][] = [];
 
-for (const count of getFilesToRun(fileToRun)) {
+for (const count of filesToRun.length ? filesToRun : inputFiles) {
   const input = readInputFile(count);
   const expected = readResultFile(count);
 
@@ -34,8 +33,4 @@ writeCsvFile(getHeaders(timesToRun), allResults);
 function getHeaders(n: number): string[] {
   const runs = Array.from(Array(n).keys()).map((i: number) => `Run ${i + 1}`);
   return ["Count"].concat(runs);
-}
-
-function getFilesToRun(number?: number): number[] {
-  return number ? [number] : inputFiles;
 }
