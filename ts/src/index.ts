@@ -6,10 +6,10 @@ import { trackExecutionTime } from "./utils/timings";
 const inputFiles = [
   10, 100, 1000, 5000, 10000, 25000, 100000, 1000000, 3000000,
 ];
-const timesToRun = 1;
+const timesToRun = 10;
 
 // Set to undefined to run all
-const fileToRun = undefined;
+const fileToRun = 100000;
 // const fileToRun = 100;
 
 const allResults: number[][] = [];
