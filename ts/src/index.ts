@@ -3,7 +3,9 @@ import { readInputFile, readResultFile, writeCsvFile } from "./utils/io";
 import solve from "./solution";
 import { trackExecutionTime } from "./utils/timings";
 
-const inputFiles = [10, 100, 1000, 5000, 10000, 25000];
+const inputFiles = [
+  10, 100, 1000, 5000, 10000, 25000, 100000, 1000000, 3000000,
+];
 const timesToRun = 1;
 
 // Set to undefined to run all
