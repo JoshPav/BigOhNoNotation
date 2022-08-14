@@ -1,1 +1,5 @@
 packages
+**/bin/**
+**/obj/**
+.idea
+
