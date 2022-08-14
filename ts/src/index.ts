@@ -20,7 +20,7 @@ for (const count of filesToRun.length ? filesToRun : inputFiles) {
   const resultsForCount = trackExecutionTime(
     () => solve(input),
     (curr, total) =>
-      console.log(`\nRun ${curr} of ${total} for ${count} people `),
+      console.log(`\nRun ${curr} of ${total} for ${count} people`),
     (ans) => assertOrderCorrect(expected, ans),
     timesToRun
   );

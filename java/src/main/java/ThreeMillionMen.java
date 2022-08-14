@@ -29,6 +29,8 @@ public class ThreeMillionMen {
 
         for (Integer count : toRun) {
 
+            System.out.printf("%nSolving for a line of %d people%n", count);
+
             List<String> expected = IoUtils.readExpected(count);
             List<PaperSlip> input = IoUtils.readInput(count);
 
