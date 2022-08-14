@@ -4,7 +4,6 @@ using System.Linq;
 using CSharp.Solution;
 using CSharp.Timing;
 using CSharp.utils;
-using Xunit;
 
 namespace CSharp
 {
@@ -36,7 +35,7 @@ namespace CSharp
                 
                 var timesTaken = timingService.TimeMethod(
                         () => solver.Solve(input),
-                        result => Assert.Equal(expected, result),
+                        result => AssertEquals(expected, result),
                         TIMES_TO_RUN
                     );
                     
@@ -53,6 +52,14 @@ namespace CSharp
                 allResults.Select(row => row.Select(time => time.ToString()))
             );
 
+        }
+
+        private static void AssertEquals<T>(T expected, T actual)
+        {
+            if (!Equals(expected, actual))
+            {
+                throw new Exception("Expected did not equal actual");
+            }
         }
 
         private static List<string> GetHeaders(int totalRuns)
