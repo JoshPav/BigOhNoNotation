@@ -14,27 +14,35 @@ namespace CSharp.utils
             List<string> fileContents = new List<string>();
             fileContents.Add(String.Join(",", headers));
             fileContents.AddRange(rows.Select(row => String.Join(",", row)));
+
+            var path = $"output/{fileName}.csv";
             
+            var file = new System.IO.FileInfo(path);
+            if (!file.Directory.Exists)
+            {
+                file.Directory.Create();
+            }
+
             File.WriteAllLines(
-                $"output/{fileName}.csv",
+                path,
                 fileContents
             );
         }
         
-        public static IEnumerable<string> ReadExpected(int count)
+        public static List<string> ReadExpected(int count)
         {
             return GetPath("answers", count).ToList();
         }
         
-        public static IEnumerable<PaperSlip> ReadInput(int count)
+        public static List<PaperSlip> ReadInput(int count)
         {
             return GetPath("input", count).ToList().Select(PaperSlip.Parse).ToList();
         }
 
-        private static IEnumerable<string> GetPath(string directory, int count)
+        private static List<string> GetPath(string directory, int count)
         {
             var path = Path.Combine(GetFilesDirPath(), $"./{directory}/{count}.txt");
-            return File.ReadAllLines(path);
+            return File.ReadAllLines(path).ToList();
         }
 
         private static string GetFilesDirPath()

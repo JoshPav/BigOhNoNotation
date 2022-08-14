@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 public class FunctionTimingService {
 
-    public <T> List<Long> timeMethod(Supplier<T> methodToTime, Consumer<T> postRun, int timesToRun) {
+    public <T> List<Double> timeMethod(Supplier<T> methodToTime, Consumer<T> postRun, int timesToRun) {
 
         List<Long> timings = new ArrayList<>();
 
@@ -38,7 +38,7 @@ public class FunctionTimingService {
         System.out.printf("Average time taken: %s%n%n", getTimeTaken(avgTimeTakenMicro));
 
         // Convert nanos back to MS
-        return timings.stream().map(micro -> micro / 1000).collect(Collectors.toList());
+        return timings.stream().map(micro -> micro / 1000d).collect(Collectors.toList());
     }
 
     private static String getTimeTaken(long microSecondsTaken) {

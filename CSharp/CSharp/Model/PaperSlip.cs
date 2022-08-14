@@ -3,8 +3,8 @@ namespace CSharp.Model
     public class PaperSlip
     {
         
-        private string Person { get; }
-        private string Neighbour { get; }
+        public string Person { get; }
+        public string Neighbour { get; }
         
         public PaperSlip(string Person, string Neighbour)
         {

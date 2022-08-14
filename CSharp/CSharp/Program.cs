@@ -20,7 +20,7 @@ namespace CSharp
         {
             IEnumerable<int> toRun = FILES_TO_RUN.Any() ? FILES_TO_RUN : INPUT_FILES;
             
-            var allResults = new List<List<long>>();
+            var allResults = new List<List<double>>();
 
             FunctionTimingService timingService = new FunctionTimingService();
             
@@ -28,8 +28,8 @@ namespace CSharp
             {
                 Console.WriteLine($"\nSolving for a line of {count} people\n");
 
-                var expected= IoUtils.ReadExpected(10);
-                var input = IoUtils.ReadInput(10);
+                var expected= IoUtils.ReadExpected(count);
+                var input = IoUtils.ReadInput(count);
 
                 IThreeMillionMenSolver solver = new DefaultSolutionService();
                 
@@ -40,7 +40,7 @@ namespace CSharp
                     );
                     
                 // Add the count to the start of the row
-                timesTaken.Insert(0, Convert.ToInt64(count));
+                timesTaken.Insert(0, Convert.ToDouble(count));
 
                 allResults.Add(timesTaken);
                 
@@ -48,15 +48,15 @@ namespace CSharp
             
             IoUtils.OutputToCsv(
                 new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds().ToString(), 
-                new List<string>(),
+                GetHeaders(TIMES_TO_RUN),
                 allResults.Select(row => row.Select(time => time.ToString()))
             );
 
         }
 
-        private static void AssertEquals<T>(T expected, T actual)
+        private static void AssertEquals<T>(List<T> expected, List<T> actual)
         {
-            if (!Equals(expected, actual))
+            if (!expected.SequenceEqual(actual))
             {
                 throw new Exception("Expected did not equal actual");
             }

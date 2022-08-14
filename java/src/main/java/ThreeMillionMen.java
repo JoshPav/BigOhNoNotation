@@ -25,7 +25,7 @@ public class ThreeMillionMen {
         List<Integer> toRun = FILES_TO_RUN.isEmpty() ? INPUT_FILES : FILES_TO_RUN;
         FunctionTimingService timingService = new FunctionTimingService();
 
-        List<List<Long>> allResults = new ArrayList<>();
+        List<List<Double>> allResults = new ArrayList<>();
 
         for (Integer count : toRun) {
 
@@ -36,14 +36,14 @@ public class ThreeMillionMen {
 
             ThreeMillionMenSolver solver = new DefaultSolutionService();
 
-            List<Long> timesTaken = timingService.timeMethod(
+            List<Double> timesTaken = timingService.timeMethod(
                     () -> solver.solve(input),
                     result -> assertThat(result).isEqualTo(expected),
                     TIME_TO_RUN
             );
 
             // Add the count to the start of the row
-            timesTaken.add(0, Long.valueOf(count));
+            timesTaken.add(0, Double.valueOf(count));
 
             allResults.add(timesTaken);
         }

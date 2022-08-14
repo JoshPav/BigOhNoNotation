@@ -7,7 +7,7 @@ namespace CSharp.Timing
     public class FunctionTimingService
     {
         
-        public List<long> TimeMethod<T>(Func<T> methodToTime, Action<T> postRun, int timesToRun) {
+        public List<double> TimeMethod<T>(Func<T> methodToTime, Action<T> postRun, int timesToRun) {
 
             List<long> ticksTaken = new List<long>();
 
@@ -23,7 +23,7 @@ namespace CSharp.Timing
 
                 var elapsed = watch.Elapsed;
                 
-                Console.WriteLine($"Time taken: {GetFormattedTime(elapsed)}\n\n");
+                Console.WriteLine($"Time taken: {GetFormattedTime(elapsed)}");
                 
                 postRun.Invoke(result);
 
@@ -34,12 +34,11 @@ namespace CSharp.Timing
             
             Console.WriteLine($"Average time taken: {GetFormattedTime(new TimeSpan(avgTicksTaken))}\n\n");
 
-            return ticksTaken.Select(ticks => Convert.ToInt64(new TimeSpan(ticks).Milliseconds)).ToList() ;
+            return ticksTaken.Select(ticks => new TimeSpan(ticks).TotalMilliseconds).ToList() ;
         }
 
         private static string GetFormattedTime(TimeSpan timeSpan)
         {
-            
             return timeSpan.ToString(@"mm\m\ ss\s\ fff\m\s");
         }
         

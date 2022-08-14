@@ -7,7 +7,7 @@ namespace CSharp.Solution
     public interface IThreeMillionMenSolver
     {
         
-        List<string> Solve(IEnumerable<PaperSlip> input);
+        List<string> Solve(List<PaperSlip> input);
 
     }
 }
