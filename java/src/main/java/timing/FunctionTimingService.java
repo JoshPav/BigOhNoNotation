@@ -23,6 +23,8 @@ public class FunctionTimingService {
 
             T result = methodToTime.get();
 
+            stopWatch.stop();
+
             long timeTakenMicro = stopWatch.getTime(TimeUnit.MICROSECONDS);
             System.out.printf("Time taken: %s%n", getTimeTaken(timeTakenMicro));
 

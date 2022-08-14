@@ -1,0 +1,9 @@
+/Users/Josh.Paveley/workspace/three_million_men/CSharp/CSharp/bin/Debug/CSharp.exe
+/Users/Josh.Paveley/workspace/three_million_men/CSharp/CSharp/bin/Debug/CSharp.pdb
+/Users/Josh.Paveley/workspace/three_million_men/CSharp/CSharp/obj/Debug/CSharp.csproj.AssemblyReference.cache
+/Users/Josh.Paveley/workspace/three_million_men/CSharp/CSharp/obj/Debug/CSharp.csproj.CoreCompileInputs.cache
+/Users/Josh.Paveley/workspace/three_million_men/CSharp/CSharp/obj/Debug/CSharp.exe
+/Users/Josh.Paveley/workspace/three_million_men/CSharp/CSharp/obj/Debug/CSharp.pdb
+/Users/Josh.Paveley/workspace/three_million_men/CSharp/CSharp/bin/Debug/xunit.assert.dll
+/Users/Josh.Paveley/workspace/three_million_men/CSharp/CSharp/bin/Debug/xunit.assert.xml
+/Users/Josh.Paveley/workspace/three_million_men/CSharp/CSharp/obj/Debug/CSharp.csproj.CopyComplete
